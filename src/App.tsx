@@ -27,6 +27,7 @@ import {
 import {useAppDispatch, useAppSelector} from './state/store';
 import {TaskStatuses, TaskType} from './api/todolists-api'
 import {RequestStatusType} from "./state/app-reducer";
+import {CustomizedSnackbars} from "./components/ErrorSnackBar/ErrorSnackBar";
 
 
 
@@ -95,7 +96,7 @@ function App() {
                     <Button color="inherit">Login</Button>
                 </Toolbar>
                 {status === 'loading' && <LinearProgress color={'inherit'}/>}
-
+                <CustomizedSnackbars/>
             </AppBar>
             <Container fixed>
                 <Grid container style={{padding: '20px'}}>
@@ -120,6 +121,7 @@ function App() {
                                         removeTodolist={removeTodolist}
                                         changeTaskTitle={changeTaskTitle}
                                         changeTodolistTitle={changeTodolistTitle}
+                                        entityStatus={tl.entityStatus}
                                     />
                                 </Paper>
                             </Grid>
